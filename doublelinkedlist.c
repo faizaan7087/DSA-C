@@ -59,7 +59,7 @@ void printlist(void)
         printf("%d\n", tempnode ->data);
         tempnode = tempnode -> next;
     }
-
+    return;
 }
 void insertab(int x)
 {
@@ -73,7 +73,7 @@ void insertab(int x)
     newnode -> prev = NULL;
     head = newnode;
 }
-void delfnode(void)
+void delfnode(void) // delete first node
 {
 
     dnode *tempnode = head;
@@ -81,7 +81,7 @@ void delfnode(void)
     free(tempnode);
     printf("the first element is deleted\n");
 }
-void dellnode(void)
+void dellnode(void) //delete last node
 {
 
     dnode *tempnode = head;
@@ -92,7 +92,7 @@ void dellnode(void)
         tempnode = tempnode->next;
 
     }
-    tempnode -> next =collect;
+    tempnode -> next = collect;
     free(collect);
     printf("the last node deleted\n");
 
@@ -101,16 +101,22 @@ void search(int x)
 {
 
     dnode *tempnode = head;
-    while ( tempnode -> data != x)
+    while ( tempnode != NULL)
     {
-
+        
+        
+        if(tempnode->data == x)
+        {
+            printf("the element found\n");
+            return;
+        }
         tempnode = tempnode->next;
-        return printf("the element not found\n");
     }
-    printf("the element found\n");
+    printf("the element not found\n");
+    return;
 
 }
-void main()
+int main()
 {
 
     createlist(10);
@@ -121,5 +127,5 @@ void main()
     dellnode();
     printlist();
     search(10);
-
+    return 0;
 }
