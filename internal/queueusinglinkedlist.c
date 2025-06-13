@@ -26,14 +26,8 @@ void enque(int n)
 void deque()
 {
     snode*temp=head;
-    snode*collect=NULL;
-    while(temp->next->next!=NULL)
-    {
-        temp=temp->next;
-    }
-    collect = temp->next;
-    temp->next = NULL;
-    free(collect);
+    head = head->next
+    free(temp);
 }
 void print()
 {
